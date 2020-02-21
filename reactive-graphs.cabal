@@ -1,0 +1,94 @@
+cabal-version:       2.0
+name:                reactive-graphs
+version:             0.0.0.0
+synopsis:            See README for more info
+description:         See README for more info
+homepage:            https://github.com/freemo/reactive-graphs
+bug-reports:         https://github.com/freemo/reactive-graphs/issues
+license:             Apache-2.0
+license-file:        LICENSE
+author:              Jeffrey Phillips Freeman
+maintainer:          jeffrey.freeman@cleverthis.com
+copyright:           2020 Jeffrey Phillips Freeman
+category:            graph,stream,streaming,reactive,reactivity
+build-type:          Simple
+extra-doc-files:     README.md
+                   , CHANGELOG.md
+tested-with:         GHC == 8.8.1
+
+source-repository head
+  type:                git
+  location:            https://github.com/freemo/reactive-graphs.git
+
+library
+  hs-source-dirs:      src/main/eta
+  exposed-modules:     ReactiveGraphs
+                       Primes
+
+
+  build-depends:       base ^>= 4.13.0.0
+
+
+  ghc-options:         -Wall
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
+
+test-suite reactive-graphs-test
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      test
+  main-is:             Spec.hs
+
+  build-depends:       base ^>= 4.13.0.0
+                     , reactive-graphs
+
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
+
+benchmark reactive-graphs-benchmark
+  type:                exitcode-stdio-1.0
+  hs-source-dirs:      benchmark
+  main-is:             Main.hs
+
+  build-depends:       base ^>= 4.13.0.0
+                     , gauge
+                     , reactive-graphs
+
+
+  ghc-options:         -Wall
+                       -threaded
+                       -rtsopts
+                       -with-rtsopts=-N
+                       -Wincomplete-uni-patterns
+                       -Wincomplete-record-updates
+                       -Wcompat
+                       -Widentities
+                       -Wredundant-constraints
+                       -fhide-source-paths
+                       -Wmissing-export-lists
+                       -Wpartial-fields
+                       -Wmissing-deriving-strategies
+
+  default-language:    Haskell2010
